@@ -1536,6 +1536,41 @@ details.explainer[open] .explainer-chevron { transform: rotate(180deg); }
 .rating-val.rate-hi  { color: var(--green); }   /* ≥ 85 */
 .rating-val.rate-mid { color: #FFB800; }         /* 70–84 */
 .rating-val.rate-lo  { color: var(--text-dim); } /* < 70 */
+.trend-up, .trend-down {
+  font-size: 9px;
+  font-weight: 700;
+  margin-left: 3px;
+  vertical-align: middle;
+  position: relative;
+  cursor: default;
+}
+.trend-up   { color: var(--green); }
+.trend-down { color: var(--red); }
+.trend-up::after, .trend-down::after {
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--card-alt);
+  border: 1px solid var(--border-solid);
+  border-radius: var(--radius);
+  padding: 5px 10px;
+  font-size: 11px;
+  font-family: var(--font-body);
+  font-weight: 400;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  z-index: 999;
+  pointer-events: none;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.5);
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+.trend-up:hover::after, .trend-down:hover::after {
+  opacity: 1;
+}
+.trend-up::after   { content: "rdy Score trending up — last 10 maps"; }
+.trend-down::after { content: "rdy Score trending down — last 10 maps"; }
 
 /* ── Map Selector ── */
 .map-selector {
@@ -3425,7 +3460,7 @@ details.explainer[open] .explainer-chevron { transform: rotate(180deg); }
               <span class="player-name">molodoy</span>
             </div>
           </td>
-          <td class="ta-right"><span class="rating-val rate-mid">71</span></td>
+          <td class="ta-right"><span class="rating-val rate-mid">71<span class="trend-down">▼</span></span></td>
           <td class="ct-col"><span class="role-pill awper" data-tip="Primary AWPer — controls key angles on CT side">AWP</span></td>
           <td class="ct-col">
             <div class="sp-cell"><div class="sp-num">4.7</div><div class="sp-bar-track"><div class="sp-bar-fill ct" data-w="94"></div></div></div>
@@ -3450,7 +3485,7 @@ details.explainer[open] .explainer-chevron { transform: rotate(180deg); }
               <span class="player-name">YEKINDAR</span>
             </div>
           </td>
-          <td class="ta-right"><span class="rating-val rate-mid">73</span></td>
+          <td class="ta-right"><span class="rating-val rate-mid">73<span class="trend-up">▲</span></span></td>
           <td class="ct-col"><span class="role-pill ct-short" data-tip="Short — aggressive early-round duel position on CT side">Short</span></td>
           <td class="ct-col">
             <div class="sp-cell"><div class="sp-num">2.7</div><div class="sp-bar-track"><div class="sp-bar-fill ct" data-w="54"></div></div></div>
@@ -3475,7 +3510,7 @@ details.explainer[open] .explainer-chevron { transform: rotate(180deg); }
               <span class="player-name">KSCERATO</span>
             </div>
           </td>
-          <td class="ta-right"><span class="rating-val rate-mid">76</span></td>
+          <td class="ta-right"><span class="rating-val rate-mid">76<span class="trend-up">▲</span></span></td>
           <td class="ct-col"><span class="role-pill ct-connector" data-tip="Connector — links sites and cuts rotations on CT side">Connector</span></td>
           <td class="ct-col">
             <div class="sp-cell"><div class="sp-num">3.3</div><div class="sp-bar-track"><div class="sp-bar-fill ct" data-w="66"></div></div></div>
@@ -3500,7 +3535,7 @@ details.explainer[open] .explainer-chevron { transform: rotate(180deg); }
               <span class="player-name">yuurih</span>
             </div>
           </td>
-          <td class="ta-right"><span class="rating-val rate-mid">78</span></td>
+          <td class="ta-right"><span class="rating-val rate-mid">78<span class="trend-down">▼</span></span></td>
           <td class="ct-col"><span class="role-pill ct-anchor-a" data-tip="A Anchor — holds down the A position on CT side">A Anchor</span></td>
           <td class="ct-col">
             <div class="sp-cell"><div class="sp-num">1.7</div><div class="sp-bar-track"><div class="sp-bar-fill ct" data-w="34"></div></div></div>
@@ -3525,7 +3560,7 @@ details.explainer[open] .explainer-chevron { transform: rotate(180deg); }
               <span class="player-name">FalleN</span>
             </div>
           </td>
-          <td class="ta-right"><span class="rating-val rate-lo">65</span></td>
+          <td class="ta-right"><span class="rating-val rate-lo">65<span class="trend-down">▼</span></span></td>
           <td class="ct-col"><span class="role-pill ct-anchor-b" data-tip="B Anchor — holds down the B position on CT side">B Anchor</span></td>
           <td class="ct-col">
             <div class="sp-cell"><div class="sp-num">2.7</div><div class="sp-bar-track"><div class="sp-bar-fill ct" data-w="54"></div></div></div>
@@ -3563,7 +3598,7 @@ details.explainer[open] .explainer-chevron { transform: rotate(180deg); }
               <span class="player-name">sh1ro</span>
             </div>
           </td>
-          <td class="ta-right"><span class="rating-val rate-mid">82</span></td>
+          <td class="ta-right"><span class="rating-val rate-mid">82<span class="trend-up">▲</span></span></td>
           <td class="ct-col"><span class="role-pill awper" data-tip="Primary AWPer — controls key angles on CT side">AWP</span></td>
           <td class="ct-col">
             <div class="sp-cell"><div class="sp-num">4.7</div><div class="sp-bar-track"><div class="sp-bar-fill ct" data-w="94"></div></div></div>
@@ -3588,7 +3623,7 @@ details.explainer[open] .explainer-chevron { transform: rotate(180deg); }
               <span class="player-name">donk</span>
             </div>
           </td>
-          <td class="ta-right"><span class="rating-val rate-hi">91</span></td>
+          <td class="ta-right"><span class="rating-val rate-hi">91<span class="trend-up">▲</span></span></td>
           <td class="ct-col"><span class="role-pill ct-connector" data-tip="Connector — links sites and cuts rotations on CT side">Connector</span></td>
           <td class="ct-col">
             <div class="sp-cell"><div class="sp-num">3.7</div><div class="sp-bar-track"><div class="sp-bar-fill ct" data-w="74"></div></div></div>
@@ -3613,7 +3648,7 @@ details.explainer[open] .explainer-chevron { transform: rotate(180deg); }
               <span class="player-name">zont1x</span>
             </div>
           </td>
-          <td class="ta-right"><span class="rating-val rate-mid">79</span></td>
+          <td class="ta-right"><span class="rating-val rate-mid">79<span class="trend-up">▲</span></span></td>
           <td class="ct-col"><span class="role-pill ct-short" data-tip="Short — aggressive early-round duel position on CT side">Short</span></td>
           <td class="ct-col">
             <div class="sp-cell"><div class="sp-num">3.0</div><div class="sp-bar-track"><div class="sp-bar-fill ct" data-w="60"></div></div></div>
@@ -3638,7 +3673,7 @@ details.explainer[open] .explainer-chevron { transform: rotate(180deg); }
               <span class="player-name">tN1R</span>
             </div>
           </td>
-          <td class="ta-right"><span class="rating-val rate-mid">74</span></td>
+          <td class="ta-right"><span class="rating-val rate-mid">74<span class="trend-down">▼</span></span></td>
           <td class="ct-col"><span class="role-pill ct-anchor-a" data-tip="A Anchor — holds down the A position on CT side">A Anchor</span></td>
           <td class="ct-col">
             <div class="sp-cell"><div class="sp-num">2.3</div><div class="sp-bar-track"><div class="sp-bar-fill ct" data-w="46"></div></div></div>
@@ -3663,7 +3698,7 @@ details.explainer[open] .explainer-chevron { transform: rotate(180deg); }
               <span class="player-name">magixx</span>
             </div>
           </td>
-          <td class="ta-right"><span class="rating-val rate-lo">68</span></td>
+          <td class="ta-right"><span class="rating-val rate-lo">68<span class="trend-up">▲</span></span></td>
           <td class="ct-col"><span class="role-pill ct-anchor-b" data-tip="B Anchor — holds down the B position on CT side">B Anchor</span></td>
           <td class="ct-col">
             <div class="sp-cell"><div class="sp-num">1.3</div><div class="sp-bar-track"><div class="sp-bar-fill ct" data-w="26"></div></div></div>
@@ -3756,6 +3791,22 @@ details.explainer[open] .explainer-chevron { transform: rotate(180deg); }
         <div class="legend-metric-row">
           <div class="legend-metric-dot" style="background:var(--green);border-radius:1px;"></div>
           <span>Total SP &nbsp;= CT + T combined</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="legend-sep"></div>
+
+    <div class="legend-group">
+      <div class="legend-label">rdy Score Trend</div>
+      <div class="legend-metrics">
+        <div class="legend-metric-row">
+          <span style="color:var(--green);font-size:10px;font-weight:700;margin-right:6px;">▲</span>
+          <span>Score trending up over the last 10 maps</span>
+        </div>
+        <div class="legend-metric-row">
+          <span style="color:var(--red);font-size:10px;font-weight:700;margin-right:6px;">▼</span>
+          <span>Score trending down over the last 10 maps</span>
         </div>
       </div>
     </div>
@@ -3926,7 +3977,7 @@ details.explainer[open] .explainer-chevron { transform: rotate(180deg); }
               <span class="p-role-badge awp-b">AWP</span>
             </div>
             <div class="p-power">
-              <div class="p-power-val pr-gray">71</div>
+              <div class="p-power-val pr-gray">71<span class="trend-down">▼</span></div>
               <div class="p-power-label">rdy Score</div>
             </div>
           </div>
@@ -3954,7 +4005,7 @@ details.explainer[open] .explainer-chevron { transform: rotate(180deg); }
               <span class="p-role-badge star-b">★ Star Rifler</span>
             </div>
             <div class="p-power">
-              <div class="p-power-val pr-gray">73</div>
+              <div class="p-power-val pr-gray">73<span class="trend-up">▲</span></div>
               <div class="p-power-label">rdy Score</div>
             </div>
           </div>
@@ -3982,7 +4033,7 @@ details.explainer[open] .explainer-chevron { transform: rotate(180deg); }
               <span class="p-role-badge sec-b">2nd Star</span>
             </div>
             <div class="p-power">
-              <div class="p-power-val pr-green">76</div>
+              <div class="p-power-val pr-green">76<span class="trend-up">▲</span></div>
               <div class="p-power-label">rdy Score</div>
             </div>
           </div>
@@ -4010,7 +4061,7 @@ details.explainer[open] .explainer-chevron { transform: rotate(180deg); }
               <span class="p-role-badge sup-b">Support</span>
             </div>
             <div class="p-power">
-              <div class="p-power-val pr-green">78</div>
+              <div class="p-power-val pr-green">78<span class="trend-down">▼</span></div>
               <div class="p-power-label">rdy Score</div>
             </div>
           </div>
@@ -4038,7 +4089,7 @@ details.explainer[open] .explainer-chevron { transform: rotate(180deg); }
               <span class="p-role-badge igl-b">IGL</span>
             </div>
             <div class="p-power">
-              <div class="p-power-val pr-gray">65</div>
+              <div class="p-power-val pr-gray">65<span class="trend-down">▼</span></div>
               <div class="p-power-label">rdy Score</div>
             </div>
           </div>
@@ -4078,7 +4129,7 @@ details.explainer[open] .explainer-chevron { transform: rotate(180deg); }
               <span class="p-role-badge awp-b">AWP</span>
             </div>
             <div class="p-power">
-              <div class="p-power-val pr-green">82</div>
+              <div class="p-power-val pr-green">82<span class="trend-up">▲</span></div>
               <div class="p-power-label">rdy Score</div>
             </div>
           </div>
@@ -4106,7 +4157,7 @@ details.explainer[open] .explainer-chevron { transform: rotate(180deg); }
               <span class="p-role-badge star-b">★ Star Rifler</span>
             </div>
             <div class="p-power">
-              <div class="p-power-val pr-purple">91</div>
+              <div class="p-power-val pr-purple">91<span class="trend-up">▲</span></div>
               <div class="p-power-label">rdy Score</div>
             </div>
           </div>
@@ -4134,7 +4185,7 @@ details.explainer[open] .explainer-chevron { transform: rotate(180deg); }
               <span class="p-role-badge sec-b">2nd Star</span>
             </div>
             <div class="p-power">
-              <div class="p-power-val pr-green">79</div>
+              <div class="p-power-val pr-green">79<span class="trend-up">▲</span></div>
               <div class="p-power-label">rdy Score</div>
             </div>
           </div>
@@ -4162,7 +4213,7 @@ details.explainer[open] .explainer-chevron { transform: rotate(180deg); }
               <span class="p-role-badge sup-b">Support</span>
             </div>
             <div class="p-power">
-              <div class="p-power-val pr-gray">74</div>
+              <div class="p-power-val pr-gray">74<span class="trend-down">▼</span></div>
               <div class="p-power-label">rdy Score</div>
             </div>
           </div>
@@ -4190,7 +4241,7 @@ details.explainer[open] .explainer-chevron { transform: rotate(180deg); }
               <span class="p-role-badge igl-b">IGL</span>
             </div>
             <div class="p-power">
-              <div class="p-power-val pr-gray">68</div>
+              <div class="p-power-val pr-gray">68<span class="trend-up">▲</span></div>
               <div class="p-power-label">rdy Score</div>
             </div>
           </div>
