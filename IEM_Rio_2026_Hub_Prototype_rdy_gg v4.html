@@ -1109,7 +1109,35 @@ img { max-width: 100%; display: block; }
   overflow: hidden;
   background: #000;
   aspect-ratio: 16 / 9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+.twitch-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: var(--text-dim);
+  font-size: 13px;
+  width: 100%;
+  height: 100%;
+  min-height: 200px;
+  background: #070a0e;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+.twitch-placeholder-icon { font-size: 28px; }
+.twitch-placeholder-label {
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 700;
+  color: #9146FF;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.twitch-placeholder-sub { font-size: 11px; color: var(--text-dim); }
 .twitch-container #twitch-embed,
 .twitch-container #twitch-embed iframe {
   position: absolute;
@@ -3458,7 +3486,11 @@ img { max-width: 100%; display: block; }
             <a href="https://www.twitch.tv/eslcs" target="_blank" class="watch-live-link">twitch.tv/eslcs ↗</a>
           </div>
           <div class="twitch-container">
-            <div id="twitch-embed"></div>
+            <div class="twitch-placeholder">
+              <div class="twitch-placeholder-icon">📺</div>
+              <div class="twitch-placeholder-label">Twitch Embed</div>
+              <div class="twitch-placeholder-sub">Live stream will appear here — twitch.tv/eslcs</div>
+            </div>
           </div>
         </div>
         <!-- /WATCH LIVE -->
@@ -4696,16 +4728,6 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
 });
 </script>
 
-<!-- Twitch Live Embed -->
-<script src="https://player.twitch.tv/js/embed/v1.js"></script>
-<script type="text/javascript">
-  new Twitch.Player("twitch-embed", {
-    channel: "eslcs",
-    width: "100%",
-    height: "100%",
-    parent: ["localhost"]
-  });
-</script>
 
 </body>
 </html>
